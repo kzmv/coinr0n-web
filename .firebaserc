@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "coinr0n": {
+      "hosting": {
+        "coinr0n-web": [
+          "coinr0n"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "coinr0n"
+  }
+}
