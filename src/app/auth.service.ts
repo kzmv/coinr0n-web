@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
-import { baseUrl } from './utils';
+import { baseBackendUrl, baseUrl } from './utils';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
 
   login() {
     // this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    const popup = window.open(`${baseUrl}redirect`, '_blank', 'height=700, width=800')
+    const popup = window.open(`${baseBackendUrl}redirect`, '_blank', 'height=700, width=800')
     
   }
 
