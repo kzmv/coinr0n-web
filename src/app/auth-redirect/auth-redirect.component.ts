@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { switchMap,  from } from 'rxjs';
+import { baseBackendUrl } from '../utils';
 
 @Component({
   selector: 'app-auth-redirect',
@@ -16,7 +17,7 @@ export class AuthRedirectComponent implements OnInit {
   ngOnInit(): void {
     const code = this.route.snapshot.queryParamMap.get('code');
     if(code) {
-      const url = `http://localhost:4000/token?code=${code}`
+      const url = `${baseBackendUrl}token?code=${code}`
       this.http.post(url, {}).pipe(
         // switchMap((res: any) => from(this.auth.customSignIn(res.authToken)))
       ).subscribe(d => {
