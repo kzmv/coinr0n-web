@@ -16,7 +16,7 @@ export class AuthService {
 
   login() {
     // this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    const popup = window.open(`${baseBackendUrl}redirect`, '_blank', 'height=700, width=800')
+    const popup = window.open(`${baseBackendUrl}/redirect`, '_blank', 'height=700, width=800')
     
   }
 

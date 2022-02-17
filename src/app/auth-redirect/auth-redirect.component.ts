@@ -17,8 +17,9 @@ export class AuthRedirectComponent implements OnInit {
   ngOnInit(): void {
     const code = this.route.snapshot.queryParamMap.get('code');
     if(code) {
-      const url = `${baseBackendUrl}token?code=${code}`
-      this.http.post(url, {}).pipe(
+      console.log(code);
+      const url = `${baseBackendUrl}/token?code=${code}`
+      this.http.get(url).pipe(
         // switchMap((res: any) => from(this.auth.customSignIn(res.authToken)))
       ).subscribe(d => {
         console.log(d);
