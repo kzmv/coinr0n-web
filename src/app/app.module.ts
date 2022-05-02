@@ -1,29 +1,42 @@
+import { CoinronService } from './shared/services/coinron.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthRedirectComponent } from './auth-redirect/auth-redirect.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AuthService } from './shared/services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVQM6p15mCz1nFxFV3fr3YG089vsKkVVA",
-  authDomain: "coinr0n.firebaseapp.com",
-  projectId: "coinr0n",
-  storageBucket: "coinr0n.appspot.com",
-  messagingSenderId: "613682193811",
-  appId: "1:613682193811:web:9b88f7b77d0e7b76533466",
-  measurementId: "G-0YRQ6YDEF4"
+  apiKey: 'AIzaSyCVQM6p15mCz1nFxFV3fr3YG089vsKkVVA',
+  authDomain: 'coinr0n.firebaseapp.com',
+  projectId: 'coinr0n',
+  storageBucket: 'coinr0n.appspot.com',
+  messagingSenderId: '613682193811',
+  appId: '1:613682193811:web:9b88f7b77d0e7b76533466',
+  measurementId: 'G-0YRQ6YDEF4',
 };
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDetailsComponent,
-    AuthRedirectComponent
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,11 +44,14 @@ const firebaseConfig = {
     HttpClientModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    // provideFirebaseApp(()? => initializeApp(firebaseConfig)),
-    // provideFirestore(() => getFirestore()),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService, CoinronService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
