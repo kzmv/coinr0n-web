@@ -1,0 +1,27 @@
+.main-page-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-areas: 'sidebar main';
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(20%, 200px) 1fr;
+}
+
+.sidebar-container {
+  grid-area: 'sidebar';
+  background-color: #f0f0f0f0;
+  padding: 0.5rem;
+}
+
+.main-container {
+  grid-area: 'main';
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.nav-text {
+  padding: 0.5rem;
+}

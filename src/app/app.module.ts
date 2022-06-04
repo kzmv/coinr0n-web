@@ -1,23 +1,25 @@
-import { CoinronService } from './shared/services/coinron.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AuthService } from './shared/services/auth.service';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { GridDashboardComponent } from './components/grid-dashboard/grid-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthService } from './shared/services/auth.service';
+import { CoinronService } from './shared/services/coinron.service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCVQM6p15mCz1nFxFV3fr3YG089vsKkVVA',
@@ -32,11 +34,13 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    GridDashboardComponent,
+    UserProfileComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

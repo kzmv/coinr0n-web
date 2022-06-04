@@ -7,3 +7,30 @@
 .login-form {
     justify-self: center;
 }
+.form-signin {
+  display:grid;
+  grid-template-columns: auto  30rem auto;
+}
+
+.signForm {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.display-grid {
+  display: flex;
+}
+
+.or-label {
+  justify-content: center;
+  justify-items: center;
+}
+
+.roboto {
+  font-family: monospace
+}
+
+.button-wrap {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
