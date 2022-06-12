@@ -24,16 +24,27 @@
       <div class="mb-3">
         <div class="input-group mb-3">
 
-          <input #apikey type="text" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="basic-addon2">
+          <input #apikey type="text" [type]="hideApi ? 'password' : 'text'" class="form-control" placeholder="API Key" aria-label="API Key" aria-describedby="basic-addon2">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"><i class="bi bi-eye-fill"></i></button>
+            <button class="btn btn-outline-secondary" type="button" (click)="hideApi = !hideApi"><i [ngClass]="{'bi bi-eye-fill': hideApi, 'bi bi-eye-slash-fill': !hideApi}"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group mb-3">
+
+          <input #secret type="text" [type]="hideSecret ? 'password' : 'text'" class="form-control" placeholder="API Secret" aria-label="API Key" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="hideSecret = !hideSecret"><i [ngClass]="{'bi bi-eye-fill': hideSecret, 'bi bi-eye-slash-fill': !hideSecret}"></i></button>
           </div>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="save(secret.value, apikey.value, modal)">Save</button>
+
   </div>
 </ng-template>
 

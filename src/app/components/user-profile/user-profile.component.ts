@@ -10,6 +10,8 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserProfileComponent implements OnInit {
 
+  hideApi = true;
+  hideSecret = true;
   constructor(public authService: AuthService, public coinronService: CoinronService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -17,5 +19,11 @@ export class UserProfileComponent implements OnInit {
 
   async open(content: any) {
     const result = await this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  }
+
+  async save(secret: string, apiKey: string, modal: any ) {
+    console.log(secret);
+    console.log(apiKey);
+    modal.close('Save clicked')
   }
 }
