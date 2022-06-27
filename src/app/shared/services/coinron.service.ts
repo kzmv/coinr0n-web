@@ -9,7 +9,7 @@ import { switchMap, tap } from 'rxjs';
 })
 export class CoinronService {
 
-  constructor(public authService: AuthService, public http: HttpClient) { 
+  constructor(public authService: AuthService, public http: HttpClient) {
     // this.authService.g
   }
 
@@ -17,6 +17,19 @@ export class CoinronService {
   getHello() {
     return this.authService.getToken().pipe(
       switchMap(token => this.http.get('http://localhost:4000/hello/test', {headers: {
+      'Authorization': `Bearer ${token}`
+    }})),
+      tap(r => console.log(r))
+    )
+  }
+
+  addExchangeConfig(secret: string, api: string) {
+    return this.authService.getToken().pipe(
+      switchMap(token => this.http.post('http://localhost:4000/user-settings', {
+        apiKey: api,
+        secret,
+        exchange: 'Coinbase'
+      }, {headers: {
       'Authorization': `Bearer ${token}`
     }})),
       tap(r => console.log(r))

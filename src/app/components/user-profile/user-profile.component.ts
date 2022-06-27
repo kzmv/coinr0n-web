@@ -24,6 +24,9 @@ export class UserProfileComponent implements OnInit {
   async save(secret: string, apiKey: string, modal: any ) {
     console.log(secret);
     console.log(apiKey);
+    this.coinronService.addExchangeConfig(secret, apiKey).subscribe(d => {
+      console.log(d);
+    })
     modal.close('Save clicked')
   }
 }
